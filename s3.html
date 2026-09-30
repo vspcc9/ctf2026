@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Kvíz</h1>
+
+<p>1. Hlavní město ČR?</p>
+
+<input type="radio" name="q1" value="0"> Brno
+<input type="radio" name="q1" value="1"> Praha
+
+<p>2. 2 + 2 = ?</p>
+
+<input type="radio" name="q2" value="0"> 5
+<input type="radio" name="q2" value="1"> 4
+
+<p>3. Barva trávy?</p>
+
+<input type="radio" name="q3" value="1"> Zelená
+<input type="radio" name="q3" value="0"> Modrá
+
+<br><br>
+
+<button onclick="vyhodnotit()">
+Odeslat
+</button>
+
+<script>
+
+function vyhodnotit() {
+
+    let body = 0;
+
+    let q1 =
+    document.querySelector('input[name="q1"]:checked');
+
+    let q2 =
+    document.querySelector('input[name="q2"]:checked');
+
+    let q3 =
+    document.querySelector('input[name="q3"]:checked');
+
+    if(q1) body += Number(q1.value);
+    if(q2) body += Number(q2.value);
+    if(q3) body += Number(q3.value);
+
+    let procenta = body / 3 * 100;
+
+    if(procenta >= 60) {
+
+        window.location.href =
+        "https://maps.google.com/?q=49.201,16.612";
+
+    }
+    else {
+
+        alert(
+        "Máš pouze " +
+        procenta +
+        "%. Zkus to znovu."
+        );
+
+    }
+}
+
+</script>
+
+</body>
+</html>
